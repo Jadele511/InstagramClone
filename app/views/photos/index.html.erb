@@ -8,7 +8,7 @@
         <div><strong><%= photo.username %></strong></div>
         <div><%= photo.likes_count %> likes</div>
       </div>
-      <img class="card-img-top"   src="http://placeimg.com/640/480/animals" alt="Card image cap">
+      <img class="card-img-top" src="http://placeimg.com/640/480/animals?<%= photo.username %>" alt="Card image cap">
 
         <p class="card-text"><%= photo.caption %></p>
         <div class="actions">
