@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h1>Listing Photos</h1>
+  <% @photos.each do |photo| %>
+    <div class="card">
+      <div class="card-block">
+        <div><strong><%= photo.username %></strong></div>
+        <div><%= photo.likes_count %> likes</div>
+      </div>
+      <img class="card-img-top"   src="http://placeimg.com/640/480/animals" alt="Card image cap">
+
+        <p class="card-text"><%= photo.caption %></p>
+        <div class="actions">
+          <span class="action"><%= link_to 'Show', photo %></span>
+          <span class="action"><%= link_to 'Edit', edit_photo_path(photo) %></span>
+          <span class="action"><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Caption</th>
+      <th>Likes count</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td><%= photo.username %></td>
+        <td><%= photo.caption %></td>
+        <td><%= photo.likes_count %></td>
+        <td><%= photo.url %></td>
+        <td><%= link_to 'Show', photo %></td>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
